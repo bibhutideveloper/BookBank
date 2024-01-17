@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-sidebar.css}">
+	<link rel="stylesheet" th:href="@{/css/dashboard-tabs.css}">
+
+	<script th:src="@{/js/alert.js}"></script>
+    <title>Update Books</title>
+</head>
+<body>
+	<div th:replace="admin/fragments/header::header"></div>
+	<section id="admin-dashboard">
+		<div th:replace="admin/fragments/sidebar::sidebar"></div>
+		<div class="dashboard-tabs">			
+			<div class="dashboard-tabs-data" >
+		        <div class="heading-mini">
+		            <h2>Update Books</h2>
+		            <div class="dividerFull"></div>
+		        </div>
+		        <!-- alert message  -->
+				<div th:if="${param.success}" id="alertMessage">
+				    <div class="alert alert-success">
+				        <i class="fa-regular fa-circle-check"></i>
+				        &emsp;Book Updated Successfully !
+				    </div>
+				</div>
+				<div th:if="${param.error}" id="alertMessage">
+				    <div class="alert alert-error">
+				        <i class="fa-solid fa-triangle-exclamation"></i>
+				        &emsp;Failed To Update Book !
+				    </div>
+				</div>
+		        <div class="dashboard-inner">
+		          <form action="#" th:action="@{/admin/add_books}" th:object="${books}" th:method="POST">
+                        <div class="form-div">
+                            <div class="form-inputs">
+                                 <div class="input-container">
+                                	<input type="hidden" th:field="*{bookId}"/>
+                                    <label for="bookName">book name</label>
+                                    <input type="text" th:field="*{bookName}" name="bookName" id="bookName" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="bookAuthor">book author</label>
+                                    <input type="text" th:field="*{bookAuthor}" name="bookAuthor" id="bookAuthor" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="bookGenre">genre</label>
+                                    <input type="text" name="bookGenre" id="bookGenre" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="bookCategory">category</label>
+                                    <input type="text" th:field="*{bookCategory}" name="bookCategory" id="bookCategory" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="bookPrice">price</label>
+                                    <input type="text" th:field="*{bookPrice}" name="bookPrice" id="bookPrice" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="userImage">book image</label>
+                                    <input type="file"  name="userImage" id="userImage" style="background: none">
+                                </div> 
+                                <div class="input-container">
+                                    <button type="submit" class="btn">Update Book<i class="fa-solid fa-angle-right"></i></button>
+                                </div>
+                            </div>
+                    	</div>
+                    </form>
+		        </div>
+    		</div>
+		</div>
+	</section>
+
+    
+</body>
+</html>

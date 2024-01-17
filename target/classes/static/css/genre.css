@@ -1,0 +1,49 @@
+#genre{
+	height: 100vh;
+}
+.genre{
+	width: 1200px;
+	margin: 0 auto;
+	padding:100px 0 40px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.genre h2{
+	text-align: center;
+	padding: 20px 0 30px 0;
+}
+.genre-grid{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 40px;
+	
+}
+.genre-grid a{
+	width: 200px;
+}
+.genre-card{
+	text-align: center;
+}
+.genre-img{
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	border-radius: 50%;	
+	background: rgb(2,0,36);
+	background: linear-gradient(135deg, rgba(241,255,97,0.13217787114845936) 0%, rgba(2,0,36,0) 61%, rgba(0,212,255,0.8) 100%);	
+}
+.genre-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	transition: all 0.3s ease;
+}
+.genre-img img:hover{
+	transform: scale(1.05);
+	transition: all 0.3s ease;
+}
+.genre-desc{
+	
+}

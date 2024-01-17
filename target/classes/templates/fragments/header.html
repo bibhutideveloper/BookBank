@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body th:fragment="header">
+	<header >
+        <div class="header">
+            <div class="logo">
+                <span><i class="fa-solid fa-book-open"></i>book</span>
+                <span>bank</span>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a th:href="@{/}">home</a></li>
+                    <li><a th:href="@{/shop}">shop</a></li>
+                    <li><a th:href="@{/genre}">genre</a></li>
+                    <li><a th:href="@{/contact}">contact</a></li>
+                    <li><a th:href="@{/about}">about</a></li>
+                </ul>
+            </div>
+            <div class="user-action">
+                <div><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                <div th:unless="${session.users != null}">
+                	<a href="#" onclick="openNavLogin()"><i class="fa-regular fa-user"></i></a>
+                </div>
+                <div class="user-img" th:if="${session.LoggedInUser != null}">
+                	<img th:src="@{/images/user.png}" />
+                	<!-- <img th:if="${#session.getAttribute('userId') != null}" th:src="@{/getUserImage/{userId}(userId=${#session.getAttribute('userId')})}" alt="User Image"/>
+                	 -->
+                	 <div class="user-logged-in" id="user-logged-in">
+					   	<ul>
+					   		<li><p  th:text="'Hello, '+${session.LoggedInUser.userName}">
+					   			<i class="fa-solid fa-user"></i></p>
+					   		</li>
+					   		<li><a th:href="@{/}">
+					   			<i class="fa-solid fa-user"></i>My Profile</a>
+					   		</li>
+					   		<li><a th:href="@{/logout}">
+					   			<i class="fa-solid fa-arrow-right-from-bracket"></i>Log Out</a>
+					   		</li>
+					   	</ul>
+					</div>
+                </div>
+                <div><a href="#"><i class="fa-regular fa-heart"></i></a></div>
+                <div><a href="#" onclick="openNavCart()"><i class="fa-solid fa-cart-shopping"></i></a></div>
+            </div>
+            
+        </div>
+        
+    </header>
+    <div th:insert="@{/fragments/login-alert}"></div>
+</body>
+</html>

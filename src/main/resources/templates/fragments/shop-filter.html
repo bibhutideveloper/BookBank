@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="shop-filter" th:fragment="shop-filter">
+    		<div class="filter-1">
+    			<a>new book</a>
+    			<a>old book</a>
+    		</div>
+    		<div class="filter-2">
+   			<th:block th:if="${not #lists.isEmpty(listGenres)}">
+		        <h3>Genres</h3>
+		        <ul>
+		            <li th:each="genre : ${listGenres}">
+                <a th:href="@{/shop/genre/{bgId}(bgId=${genre.bgId})}" th:text="${genre.bgName}"></a>
+            </li>
+		        </ul>
+		    </th:block>
+    		</div>
+    	</div>
+</body>
+</html>

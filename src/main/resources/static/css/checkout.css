@@ -1,0 +1,156 @@
+#checkout-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 120px 0;
+}
+.checkout-container {
+    display: flex;
+	gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+}
+.personal-info{
+	width: 60%;
+}
+.bill-details {
+	width: 40%
+}
+.personal-info,
+.bill-details {
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    background-color: #f65d4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.bill-details span{
+	display: flex;
+	gap: 10px;
+}
+.bill-details span>span{
+	display: flex;
+	align-items: center;
+	gap:2px;
+}
+.bill-details ul {
+    list-style: none;
+    padding: 0;
+    color: var(--txt-light-color);
+}
+
+.bill-details li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.bill-details .book-details {
+    flex: 1;
+    display: flex;
+}
+
+.bill-details .book-name {
+    margin-right: 5px;
+}
+
+.bill-details .quantity,
+.bill-details .price {
+    width: 50px;
+    text-align: center;
+}
+
+.bill-details hr {
+    margin: 10px 0;
+    border: 1px solid #eaeaea;
+}
+
+.bill-details .total {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    color: black !important;
+}
+.bill-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bill-details li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.bill-details .book-details {
+    flex: 1;
+    display: flex;
+}
+
+.bill-details .book-name {
+    margin-right: 5px;
+}
+
+.bill-details .quantity,
+.bill-details .price {
+    width: 50px;
+    text-align: center;
+}
+
+.bill-details hr {
+    margin: 10px 0;
+    border: 1px solid #eaeaea;
+}
+
+.bill-details .total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 8px;
+}
+.bill-details {
+    position: relative;
+}
+.payment-methods{
+	margin-top: 30px;
+}
+label.payment-option{
+	display: flex;
+	align-items: baseline;
+}
+label.payment-option input {
+    width: 50px;
+    margin: 10px 0 0 0;
+}
+
+.proceed-to-payment {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    margin-top: 10px;
+    width: calc(100% - 20px);
+}

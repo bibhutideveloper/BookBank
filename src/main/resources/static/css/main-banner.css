@@ -1,0 +1,113 @@
+#top-banner{
+    height: 100vh;
+    width: 100%;
+    background: url('https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background: #fcf1ed;
+}
+
+/* slider, top banner */
+.top-banner{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: var(--light-bg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    width: 80%;
+}
+.mySlides>span{
+    display: flex;
+    align-items: center;
+}
+.banner-content{
+    /* border: 1px solid red; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    line-height: 1.05;
+    text-transform: capitalize;
+}
+.banner-content h1{
+    font-size: 70px;
+}
+.banner-content h3{
+    color: var(--primary-color);
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+.banner-content h6{
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--txt-light-color);
+    font-weight: 500;
+    margin-top: 20px;
+}
+.banner-image{
+    /* border: 1px solid blue; */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-image img{
+    height: 450px;
+}
+  
+/* Next & previous buttons */
+.prev, .next,  .featured-books-btn{
+    cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+    width: auto;
+    padding: 16px;
+    color: var(--txt-light-color);
+    font-weight: 400;
+    font-size: 18px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+.prev i, .next i{
+    font-size: 18px;
+    margin-top: 2px;
+}
+.prev{
+    left: 30px;
+}
+.next {
+    right: 30px;
+    border-radius: 3px 0 0 3px;
+}
+.featured-books-btn{
+    display: flex;
+    flex-direction: column;
+}
+.prev:hover, .next:hover,.featured-books-btn:hover {
+    bottom: 45px;
+}
+  
+/* Fade animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}

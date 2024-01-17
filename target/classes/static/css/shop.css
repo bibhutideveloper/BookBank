@@ -1,0 +1,71 @@
+#shop{
+	min-height: 100vh;
+}
+.shop{
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	gap: 20px;
+}
+.shop-filter{
+	width: 20%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	padding: 120px 20px 20px 20px;
+	box-shadow: var(--shadow-high);
+}
+.book-grid{
+	width: 80%;
+	padding: 120px 20px 20px 20px;
+	display: grid;
+	grid-gap: 40px 30px;
+	grid-template-columns: repeat(4, 1fr);
+}
+.filter-1{
+	display: flex;
+	flex-direction: column;
+}
+.buttons-shop{
+	position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    gap: 10px; 
+    bottom: 10px;
+    font-size: 18px;
+    color: black;
+    right: -60px;
+    transition: all 0.3s ease;
+}
+.book-grid card{
+	width: 100%;
+}
+.book-grid a{
+	width:230px;
+}
+.book-grid a:hover .buttons-shop{
+	display: flex;
+    right: 10px;
+    transition: all 0.3s ease;
+}
+.buttons-shop .shop-me{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height:35px;
+	width:35px !important;
+	font-size: 12px;
+	background: white;
+	border: 1px solid var(--clr-border);
+	border-radius: 50px;
+	cursor: pointer;
+}
+.buttons-shop .shop-me:hover{
+	color: white;
+	background: var(--primary-color);
+}
+#shop .card{
+	height: auto;
+}

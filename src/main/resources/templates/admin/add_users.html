@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-sidebar.css}">
+	<link rel="stylesheet" th:href="@{/css/dashboard-tabs.css}">
+
+	<script th:src="@{/js/alert.js}"></script>
+    <title>Add Users</title>
+</head>
+<body>
+	<div th:replace="admin/fragments/header::header"></div>
+	<section id="admin-dashboard">
+		<div th:replace="admin/fragments/sidebar::sidebar"></div>
+		<div class="dashboard-tabs">			
+			<div class="dashboard-tabs-data" >
+		        <div class="heading-mini">
+		            <h2>Add Users</h2>
+		            <div class="dividerFull"></div>
+		        </div>
+		        <!-- alert message  -->
+				<div th:if="${param.success}" id="alertMessage">
+				    <div class="alert alert-success">
+				        <i class="fa-regular fa-circle-check"></i>
+				        &emsp;User Added Successfully !
+				    </div>
+				</div>
+				<div th:if="${param.error}" id="alertMessage">
+				    <div class="alert alert-error">
+				        <i class="fa-solid fa-triangle-exclamation"></i>
+				        &emsp;Failed To Add User !
+				    </div>
+				</div>
+		        <div class="dashboard-inner">
+		            <form th:action="@{/admin/add_users}" th:object="${users}" th:method="POST">
+                        <div class="form-div">
+                            <div class="form-inputs">
+                                <div class="input-container">
+                                    <label for="userName">name</label>
+                                    <input type="text" th:field="*{userName}" name="userName" id="userName" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="userEmail">email</label>
+                                    <input type="email" th:field="*{userEmail}" name="userEmail" id="userEmail" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="userContact">contact</label>
+                                    <input type="text" th:field=*{userContact} name="userContact" id="userContact" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="userImage">user image</label>
+                                    <input type="file"  name="userImage" id="userImage" style="background: none">
+                                </div> 
+                                <div class="input-container">
+                                    <label for="userPassword">password</label>
+                                    <input type="password" th:field=*{userPassword} name="userPassword" id="userPassword" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="cnfUserPassword">confirm password</label>
+                                    <input type="text" name="cnfUserPassword" id="cnfUserPassword" required>
+                                </div>
+                                <div class="input-container">
+                                    <button type="submit" class="btn">Add User<i class="fa-solid fa-angle-right"></i></button>
+                                </div>
+                            </div>
+                    	</div>
+                    </form>
+		        </div>
+    		</div>
+		</div>
+	</section>
+
+    
+</body>
+</html>

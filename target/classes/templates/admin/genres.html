@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-sidebar.css}">
+	<link rel="stylesheet" th:href="@{/css/dashboard-tabs.css}">
+	
+	<script th:src="@{/js/alert.js}"></script>
+	<title>Genres</title>
+</head>
+<body>
+<div th:replace="admin/fragments/header::header"></div>
+	<section id="admin-dashboard">
+		<div th:replace="admin/fragments/sidebar::sidebar"></div>
+		<div class="dashboard-tabs">			
+			<div class="dashboard-tabs-data" >
+		        <div class="heading-mini">
+		            <h2>Genres</h2>
+		            <div class="dividerFull"></div>
+		        </div>
+		        <div class="dashboard-inner">
+		            <table border="0" cellspacing="0">
+		                <thead>
+		                    <tr>
+		                    	<th>genre id</th>
+		                    	<th>genre name</th>
+		                    	<th>description</th>
+		                    	<th>preview</th>
+		                    	<th>action</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    <tr th:each="genre : ${listGenres}">
+		                    	<td th:text="*{genre.BgId}"></td>
+		                    	<td th:text="*{genre.bgName}"></td>
+		                    	<td th:text="*{genre.bgDesc}"></td>
+		                    	<td>img</td>
+		                    	<td>
+		                    		<a th:href="@{/admin/update_genres/{bgId}(bgId=${genre.bgId})}">
+		                    			<i class="fa-solid fa-pencil"></i>
+		                    		</a>
+		                    		<a th:href="@{/admin/delete_genres/{bgId}(bgId=${genre.bgId})}">
+		                    			<i class="fa-solid fa-trash-can"></i>
+		                    		</a>
+		                   		</td>
+		                    </tr>                
+		                </tbody>
+		            </table>
+		        </div>
+    		</div>
+		</div>
+	</section>
+</body>
+</html>

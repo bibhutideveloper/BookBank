@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<section id="top-banner" th:fragment="main-banner">
+        <div class="top-banner">
+            <div class="mySlides fade" style="display:flex">
+                <span>
+                    <div class="banner-content">
+                        <h6>editor choice</h6>
+                        <h1>top 10 books of year</h1>
+                        <h3>top 10 books to make it a great year</h3>
+                        <button class="btn btn-shop-now">shop now<i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/revslider_book-4.png" alt="">
+                    </div>
+                </span>
+            </div>          
+            <div class="mySlides fade">                
+                <span>
+                    <div class="banner-content">
+                        <h6>editor choice</h6>
+                        <h1>top 10 books of year</h1>
+                        <button class="btn btn-shop-now">shop now<i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/revslider_book-2.png" alt="">
+                    </div>
+                </span>
+            </div>
+            <div class="mySlides fade">
+                <span>
+                    <div class="banner-content">
+                        <h6>our biggest sale</h6>
+                        <h1>buy 2 get 3 free</h1>
+                        <h3>limited time only. while supplies last</h3>
+                        <button class="btn btn-shop-now">shop now<i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/revslider_book-1.png" alt="">
+                    </div>
+                </span>
+            </div>
+            
+              <!-- Next and previous buttons -->
+            <a class="prev"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;&nbsp;previous</a>
+            <a class="featured-books-btn" href="#featured-books">featured books<br> <i class="fa-solid fa-angle-down"></i></a>
+            <a class="next">next&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+        </div>
+    </section>
+</body>
+</html>

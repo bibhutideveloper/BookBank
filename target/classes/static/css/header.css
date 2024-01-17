@@ -1,0 +1,134 @@
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-light);
+    position: fixed;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 100;
+}
+
+.header{
+    display: flex;
+    width: calc(100% - 100px);
+    padding: 20px 0;
+}
+.header>div{
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    width: 20%;
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+.logo span:nth-child(2){
+    color: var(--txt-light-color);
+}
+
+.nav{
+    width: 60%;
+    justify-content: center;
+}
+.nav>ul{
+    display: flex;
+    gap: 30px;
+    font-size: 15px;
+}
+.nav a{
+    padding: 5px 15px;
+    position: relative  ;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+.nav a:hover{
+    transition: all 0.3s;
+}
+.nav a:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50px;
+    background: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: all 0.3s;
+}
+.nav a:hover:before{
+    width: 5px;
+    height: 5px;
+    transition: all 0.3s;
+}
+
+.user-action{
+    width: 20%;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+}
+.user-img{
+	display: flex;
+	justify-content: center;
+}
+.user-action a{
+    padding: 10px;
+}
+.user-action img{
+	height: 35px;
+	width: 35px;
+	object-fit: cover;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+.user-logged-in{
+	font-size: 15px;
+	width: 220px;
+	position: absolute;
+	right: 60px;
+	top: 60px;
+	height: 0px;
+	padding: 0 20px 40px 20px;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: flex-start !important;
+}
+.user-logged-in ul{
+	width: 100%;
+	height: 100%;
+	margin-top: 25px;
+	background: white;
+	overflow: hidden;
+	box-shadow: 0px 7px 5px #00000073;
+	border-radius: 0 0 3px 3px;
+}
+.user-img:hover #user-logged-in	{
+	height: 150px;
+	transition: all 0.3s ease;
+}
+.user-logged-in ul li{
+	width: 100%;
+}
+.user-logged-in a i{
+	padding-right: 20px;
+	
+}.user-logged-in a,
+.user-logged-in p{
+	width: 100%;
+	display: inline-block;
+	padding: 20px 10px 0 10px;
+	text-transform: capitalize;
+	
+}
+.user-logged-in p{
+	color: var(--primary-color);
+	font-weight: 500;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-index.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+
+    <script th:src="@{/js/alert.js}"></script>
+
+    <title>Admin Login</title>
+</head>
+<body>
+<!-- alert message  -->
+<div th:if="${param.error}" id="alertMessage">
+    <div class="alert alert-error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        &emsp;Login Failed !
+    </div>
+</div>
+
+<section id="loginContainer">
+    <div class="loginContainer">
+        <div class="loginDiv">
+            <div class="logo">
+                <span><i class="fa-solid fa-book-open"></i>book</span>
+                <span>bank</span>
+            </div>
+            <hr class="dividerFull">
+            <form action="#" th:action="@{/admin}" th:object="${admin}" method="POST">
+                <div class="input-container">
+                    <label for="adminUsername">Admin</label>
+                    <input type="text" th:field="${admin.adminUsername}" name="adminUsername" id="adminUsername" autocomplete="off" required>
+                </div>
+                <div class="input-container">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" th:field="${admin.adminPassword}" name="adminPassword" id="adminPassword" autocomplete="off" required>
+                </div> 
+                <div class="input-container-btns">
+                    <button class="btn" type="submit" name="login">Login<i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                    <a th:href="@{/}"><i class="fa-solid fa-arrow-left-long"></i>&emsp;Back to Site</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+

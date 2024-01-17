@@ -1,0 +1,90 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/8755f6524d.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/cart.css}">
+<link rel="stylesheet" th:href="@{/css/login.css}">
+<link rel="stylesheet" th:href="@{/css/genre.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+
+<script th:src="@{/js/main-banner.js}"></script>
+<script th:src="@{/js/nav-cart.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+
+<title>BookBank | Genre</title>
+</head>
+<body>
+<div th:replace="@{/fragments/header}::header"></div>
+<section id="genre">
+	<div class="genre">
+	<h2>Browse Your Favorite Genre</h2>
+		<div class="genre-grid">
+			<a href="">
+				<div class="genre-card">
+					<div class="genre-img">
+						<img th:src="@{/images/genre/fiction.png}">
+					</div>
+					<div class="genre-desc">
+						<h3>fiction</h3>
+					</div>
+				</div>
+			</a>
+			<a href="">
+				<div class="genre-card">
+					<div class="genre-img">
+						<img th:src="@{/images/genre/action.png}">
+					</div>
+					<div class="genre-desc">
+						<h3>action</h3>
+					</div>
+				</div>
+			</a>
+			<a href="">
+				<div class="genre-card">
+					<div class="genre-img">
+						<img th:src="@{/images/genre/adventure.png}">
+					</div>
+					<div class="genre-desc">
+						<h3>adventure</h3>
+					</div>
+				</div>
+			</a>
+			<a href="">
+				<div class="genre-card">
+					<div class="genre-img">
+						<img th:src="@{/images/genre/children.png}">
+					</div>
+					<div class="genre-desc">
+						<h3>children's books</h3>
+					</div>
+				</div>
+			</a>
+			<a href="">
+				<div class="genre-card">
+					<div class="genre-img">
+						<img th:src="@{/images/genre/historical.png}">
+					</div>
+					<div class="genre-desc">
+						<h3>historical</h3>
+					</div>
+				</div>
+			</a>
+			<a href="">
+				<div class="genre-card">
+					<div class="genre-img">
+						<img th:src="@{/images/genre/art and photography.png}">
+					</div>
+					<div class="genre-desc">
+						<h3>art and photography</h3>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
+</body>
+</html>

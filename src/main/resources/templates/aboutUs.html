@@ -1,0 +1,160 @@
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+    <head>
+        <title>About Us</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/aboutus.css"  rel="stylesheet" />
+        <link href="css/style1.css"  rel="stylesheet" />
+	    <link rel="stylesheet" href="css/style.css">
+	    <link rel="stylesheet" href="css/header.css">
+	    <link rel="stylesheet" href="css/index.css">
+	    <link rel="stylesheet" href="css/main-banner.css">
+	    <link rel="stylesheet" href="css/featured-books.css">
+	    <link rel="stylesheet" href="css/cart.css">
+	    <link rel="stylesheet" href="css/login.css">
+	    <link rel="stylesheet" href="css/featured-books.css">
+	    <link rel="stylesheet" href="css/additional-info.css">
+	    <link rel="stylesheet" href="css/community.css">
+	    <link rel="stylesheet" href="css/footer.css">
+	
+	    <script src="js/main-banner.js"></script>
+	    <script src="js/nav-cart.js"></script>
+	    <script src="js/login.js"></script>
+	    <script src="js/alert.js"></script>
+        <script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+        <style>
+			body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+section {
+    display:flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 2em auto;
+    background-color:var(--light-bg);
+    padding: 20px;
+    box-shadow:0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    align-items:flex-start;
+}
+
+h2 {
+    color:var(--primary-color);
+  
+    
+}
+h1 {
+    color:var(--primary-color);
+    margin-left: 350px;
+    font-size:30px;
+    
+}
+
+p {
+    line-height: 1.6;
+    color:rgb(208, 138, 150);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    color:rgb(208, 138, 150);
+}
+
+li {
+    padding-bottom: 0.5em;
+    color:rgb(208, 138, 150);
+}
+.story{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    height:auto;
+   
+}
+.img-div{
+    width:30%;
+}
+.content-div{
+    display:flex;
+    flex-direction: column;
+    width:70%;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
+}	
+header{
+position: relative;
+}
+        </style>
+    </head>
+    <body>
+          <!-- here including header.html with the help of fragment -->
+		<div th:replace="fragments/header :: header"></div>
+    
+        <section>
+            <h1>About us</h1>
+            
+            <div class="story">
+                <div class="img-div">
+                    <img th:src="@{images/revslider_book-1.png}" alt="Book image">
+                </div>
+                <div class="content-div">
+                	<h2>Our Vision</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique ut metus et consequat.\
+                        Sed vulputate hendrerit vestibulum. Fusce sit amet lacus nec mauris varius interdum a ac arcu. Nullam commodo,
+                         elit sit amet tristique bibendum, velit leo efficitur elit, vel facilisis dui mi ut elit.</p>
+                    </div>    
+            </div>
+    
+            <div class="story">
+                <div class="content-div">
+                <h2>Our Team</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique ut metus et consequat.\
+                        Sed vulputate hendrerit vestibulum. Fusce sit amet lacus nec mauris varius interdum a ac arcu. Nullam commodo,
+                         elit sit amet tristique bibendum, velit leo efficitur elit, vel facilisis dui mi ut elit.</p>
+                </div>
+                <div class="img-div">
+                    <img th:src="@{images/revslider_book-2.png}"  alt="Book image">
+                </div>
+            </div>
+    
+            
+            <div class="story">
+                <div class="img-div">
+                    <img th:src="@{images/revslider_book-1.png}" alt="Book image">
+                </div>
+                <div class="content-div">
+                <h2>Our Mission</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique ut metus et consequat.\
+                        Sed vulputate hendrerit vestibulum. Fusce sit amet lacus nec mauris varius interdum a ac arcu. Nullam commodo,
+                         elit sit amet tristique bibendum, velit leo efficitur elit, vel facilisis dui mi ut elit.</p>
+                    </div>    
+            </div>
+    
+            <div class="story">
+                <div class="content-div">
+                	<h2>Our Achievements</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique ut metus et consequat.\
+                        Sed vulputate hendrerit vestibulum. Fusce sit amet lacus nec mauris varius interdum a ac arcu. Nullam commodo,
+                         elit sit amet tristique bibendum, velit leo efficitur elit, vel facilisis dui mi ut elit.</p>
+                </div>
+                <div class="img-div">
+                    <img th:src="@{images/revslider_book-4.png}"  alt="Book image">
+                </div>
+            </div>
+    
+        </section>
+    </body>
+</html>

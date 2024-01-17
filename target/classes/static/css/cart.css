@@ -1,0 +1,122 @@
+/* nav cart */
+#nav-cart{
+    display: flex;
+    height: 100vh;
+    width: 0;
+    background: rgba(0, 0, 0, 0.86);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    transition: all 0.5s;
+}
+.nav-cart{
+    width: 500px;
+    margin-right: -500px;
+    background: white;
+    position: absolute;
+    top: 0; right: 0;
+    min-height: 100vh;
+    transition: all 0.5s;
+}
+.nav-cart .btn-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all 0.5s;
+}
+ /* cart page */
+#cart{
+	padding-top: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#cart table,
+#cart div{
+	max-width: 1200px;
+}
+#cart table button{
+	border: 0;
+	background: transparent;
+}
+
+/* Add this CSS to style the images in the first column */
+td:first-child img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Add this CSS to center the action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+/* Optional: Adjust the margin for better spacing */
+.action-buttons i {
+    margin: 0 5px;
+}
+
+/* Add this CSS for quantity modification with spacing */
+.quantity {
+    display: flex;
+    align-items: center;
+}
+.quantity form{
+    display: flex;
+    align-items: center;
+}
+
+.quantity-modify {
+    cursor: pointer;
+    color: var(--primary-color);
+    background: var(--light-bg);	 
+    border: 0;
+    margin: 0 8px;
+    user-select: none;
+    height: 30px;
+    width: 30px;
+    font-size: 19px;
+    border-radius: 50px;
+    display: grid;
+    place-items: center;
+}
+
+
+.quantity-value {
+    font-size: 15px;
+    margin: 0 8px;
+}
+table {
+    margin-top: 20px;
+}
+
+.action-buttons i {
+    margin: 0 8px;
+}
+#grand-total {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#grand-total::before {
+    content: "";
+    font-size: 16px;
+    color: var(--txt-medium-color);
+}
+tbody tr#grand-total {
+    background-color: var(--light-bg);
+}
+tbody tr#grand-total td {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 20px 0;
+}

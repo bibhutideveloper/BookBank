@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/main-banner.css}">
+    <link rel="stylesheet" th:href="@{/css/featured-books.css}">
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/featured-books.css}">
+    <link rel="stylesheet" th:href="@{/css/additional-info.css}">
+    <link rel="stylesheet" th:href="@{/css/community.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+
+    <script th:src="@{/js/main-banner.js}"></script>
+    <script th:src="@{/js/nav-cart.js}"></script>
+    <script th:src="@{/js/login.js}"></script>
+
+    <title>BookBank</title>
+</head>
+<body>
+<!-- alert message  -->
+<div th:if="${param.success}" id="alertMessage">
+    <div class="alert alert-success">
+        <i class="fa-regular fa-circle-check"></i>
+        &emsp;Registration Successful !</div>
+</div>
+<div th:if="${param.error}" id="alertMessage">
+    <div class="alert alert-error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        &emsp;Registration Failed !
+    </div>
+</div>
+
+<section id="nav-user2">
+    <div class="login-signup" id="nav-user-inner">
+        <form th:action="@{/signUp}" th:object="${users}" th:method="POST">
+            <div class="sign-up" id="signup">
+            <div class="input-container">
+                <h2 class="heading2">sign up</h2>
+            </div>
+            <div class="signup-inputs">
+                <div class="input-container">
+                    <label for="userName">name</label>
+                    <input type="text" th:field="*{userName}" name="userName" id="userName">
+                </div>
+                <div class="input-container">
+                    <label for="userEmail">email</label>
+                    <input type="email" th:field="*{userEmail}" name="userEmail" id="userEmail">
+                </div>
+                <div class="input-container">
+                    <label for="userContact">contact no.</label>
+                    <input type="text" th:field="*{userContact}" name="userContact" id="userContact">
+                </div>
+               <div class="input-container">
+                    <label for="userImage">display image</label>
+                    <input type="file"  name="userImage" id="userImage" style="background: none">
+                </div>
+                <div class="input-container">
+                    <label for="userPassword">password</label>
+                    <input type="password" th:field="*{userPassword}" name="userPassword" id="userPassword">
+                </div>
+               <div class="input-container">
+                    <label for="cnfPassword">confirm password</label>
+                    <input type="text" name="cnfPassword" id="cnfPassword">
+                </div>
+                <div class="input-container">
+                    <button class="btn">sign up<i class="fa-solid fa-angle-right"></i></button>
+                </div>
+        
+                <div class="extra-links">
+                    <p>Already have an account? <br> <a th:href="@{/}" onclick="showLogin()">Log in here</a></p>
+                </div>
+            </div>
+        </div>
+        </form>
+        
+        <a th:href="@{/}"><button class="btn-close"><i class="fa-solid fa-xmark"></i></button></a>
+    </div>
+</section>
+</body>
+</html>
+
+
+

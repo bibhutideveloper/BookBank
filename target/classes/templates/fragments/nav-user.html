@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<section id="nav-user" th:fragment="nav-user">
+    <div class="nav-user" id="nav-user-inner">
+        <div class="login-signup" id="login-signup">
+            <!-- login -->
+            <form th:action="@{/}" th:object="${users}" method="POST">             
+            	<div class="login" id="login">
+                <div class="side-img">
+                    <img src="images/revslider_book-4.png" alt="">
+                </div>
+                <div class="login-inputs">
+                    <div class="input-container">
+                        <h2 class="heading2">login</h2>
+                    </div>
+                    <div class="input-container">
+                        <label for="userEmail">username/email</label>
+                        <input type="text" th:field="${users.userEmail}"  name="userEmail" id="userEmail" required autocomplete="off" >
+<!--                     	<div class="validate-alert" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></div>
+ -->                    </div>
+                    <div class="input-container">
+                        <label for="password">password</label>
+                        <input type="password" th:field="${users.userPassword}" name="password" id="password" required autocomplete="off" >
+                        <i class="fa-solid fa-eye" id="show-password" onclick="showPassword()"></i>
+                        <i class="fa-solid fa-eye-slash" id="hide-password" onclick="hidePassword()"></i>
+<!--                     	<div class="validate-alert" th:if="${#fields.hasErrors('userPassword')}" th:errors="*{userPassword}"></div>
+ -->                    </div>
+                    <div class="input-container">
+                        <button type="submit" class="btn">sign in<i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <div class="extra-links">
+                        <a href="#">forget password?</a>
+                        <p>don't have an account? <a th:href="@{/signUp}" onclick="showSignUp()">create a new one.</a></p>
+                    </div>
+                </div>
+            </div>               
+            </form>
+
+            <!-- close button -->
+            <button class="btn-close" onclick="closeNavLogin()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+</section>
+</body>
+</html>

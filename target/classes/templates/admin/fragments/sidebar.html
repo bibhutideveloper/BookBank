@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+<link rel="stylesheet" th:href="@{/css/admin-sidebar.css}">
+
+<title></title>
+</head>
+<body>
+<div class="sidebar" th:fragment="sidebar">
+	<div class="sidebar-items">
+		<a th:href="@{/admin/adminDashboard}"><i class="fa-solid fa-layer-group"></i>dashboard</a>
+	</div>
+	<div class="sidebar-items">
+		<a th:href="@{/admin/books}"><i class="fa-solid fa-book"></i>books</a>
+		<i class="fa-solid fa-angle-right"></i>
+		<ul>
+			<li><a th:href="@{/admin/books}">view/manage books</a></li>
+			<li><a th:href="@{/admin/add_books}">add books</a></li>
+		</ul>
+	</div>
+	<div class="sidebar-items">
+		<a th:href="@{/admin/genres}"><i class="fa-solid fa-list-ol"></i>genres</a>
+		<i class="fa-solid fa-angle-right"></i>
+		<ul>
+			<li><a th:href="@{/admin/genres}">view/manage genres</a></li>
+			<li><a th:href="@{/admin/add_genres}">add genre</a></li>
+		</ul>
+	</div>
+	<div class="sidebar-items">
+		<a th:href="@{/admin/users}"><i class="fa-solid fa-users"></i>users</a>
+		<i class="fa-solid fa-angle-right"></i>
+		<ul>
+			<li><a th:href="@{/admin/users}">view/manage users</a></li>
+			<li><a th:href="@{/admin/add_users}">add users</a></li>
+		</ul>
+	</div>
+	<div class="sidebar-items">
+		<a th:href="@{/admin/orders}"><i class="fa-solid fa-truck"></i>orders</a>
+	</div>
+	<div class="sidebar-items log-out">
+		<a th:href="@{/}"><i class="fa-solid fa-arrow-right-from-bracket"></i>log out</a>
+	</div>
+</div>
+</body>
+</html>

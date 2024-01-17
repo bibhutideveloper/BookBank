@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/8755f6524d.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/cart.css}">
+<link rel="stylesheet" th:href="@{/css/login.css}">
+<link rel="stylesheet" th:href="@{/css/featured-books.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+<link rel="stylesheet" th:href="@{/css/shop.css}">
+
+<script th:src="@{/js/main-banner.js}"></script>
+<script th:src="@{/js/nav-cart.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+
+<title>BookBank | Cart</title>
+</head>
+<body>
+	<div th:replace="@{/fragments/header}::header"></div>
+	<section id="cart">
+	 <!-- alert message  -->
+	<div th:if="${param.error}" id="alertMessage">
+	    <div class="alert alert-error">
+	        <i class="fa-solid fa-triangle-exclamation"></i>
+	        &emsp;Something went wrong !
+	    </div>
+	</div>
+	<h1 class="heading1">Your Cart</h1>
+		<table border="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Preview</th>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Total</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cart : ${listCart}">
+					<td><img th:src="@{/images/books/22.jpg}" alt=""
+						style="width: 60px; height: 80px;"></td>
+					<td th:text="${cart.books.bookName}"></td>
+					<td>
+				        <div class="quantity">
+							<form th:action="@{/updateQuantity}" method="post">
+							    <input type="hidden" name="cartId" th:value="${cart.cartId}" />
+								<button class="quantity-modify" type="submit" name="operation" value="decrement">-</button>
+							    <span class="quantity-value" th:text="${cart.bookQuantity}"></span>
+								<button class="quantity-modify" type="submit" name="operation" value="increment">+</button>
+							</form>				            
+				        </div>
+				    </td>
+					<td>
+						<span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+						<span th:text="${cart.books.bookPrice}"></span>
+					</td>
+					<td>
+						<span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+						<span th:text="${cart.books.bookPrice * cart.bookQuantity}"></span>
+					</td>
+					<td class="action-buttons">
+						<form th:action="@{/deleteCartItem}" method="post">
+					    <input type="hidden" name="cartId" th:value="${cart.cartId}" />
+					    <button type="submit"><i class="fas fa-trash-can" title="Remove"></i></button>
+					</form>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3"></td>
+					<td>Grand Total:</td>
+					<td>
+						<span id="grand-total"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+						<span id="grand-total" th:text="${grandTotal}"></span>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="dividerFull"></div>
+
+		<div style="margin-top:20px">
+			<a class="btn" 
+				th:href="@{/checkout}">
+				Proceed to Checkout<i class="fa-solid fa-angle-right"></i>
+			</a>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+#additional-info{
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.additional-info{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 50px;
+}
+
+.info-container{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.info-img{
+    display: flex;
+    justify-content: center;
+}
+.info-img img{
+    mix-blend-mode: multiply;
+  filter: contrast(1);
+}
+
+.info-data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.info-data p{
+    font-size: 13px;
+    color: var(--txt-medium-color);
+}

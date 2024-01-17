@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-sidebar.css}">
+	<link rel="stylesheet" th:href="@{/css/dashboard-tabs.css}">
+	
+	<script th:src="@{/js/alert.js}"></script>
+    <title>Books</title>
+</head>
+<body>
+	<div th:replace="admin/fragments/header::header"></div>
+	<section id="admin-dashboard">
+		<div th:replace="admin/fragments/sidebar::sidebar"></div>
+		<div class="dashboard-tabs">			
+			<div class="dashboard-tabs-data" >
+		        <div class="heading-mini">
+		            <h2>Books</h2>
+		            <div class="dividerFull"></div>
+		        </div>
+		        <div class="dashboard-inner">
+		            <table border="0" cellspacing="0">
+		                <thead>
+		                    <tr>
+		                    	<th>book id</th>
+		                    	<th>book name</th>
+		                    	<th>book author</th>
+		                    	<th>genre</th>
+		                    	<th>price</th>
+		                    	<th>preview</th>
+		                    	<th>action</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    <tr th:each="book : ${listBooks}">
+		                    	<td th:text="*{book.BookId}"></td>
+		                    	<td th:text="*{book.bookName}"></td>
+		                    	<td th:text="*{book.bookAuthor}"></td>
+		                    	<td >genre</td>
+		                    	<td th:text="*{book.bookPrice}"></td>
+		                    	<td>img</td>
+		                    	<td>
+		                    		<a th:href="@{/admin/update_books/{bookId}(bookId=${book.bookId})}">
+		                    			<i class="fa-solid fa-pencil"></i>
+		                    		</a>
+		                    		<a th:href="@{/admin/delete_books/{bookId}(bookId=${book.bookId})}">
+		                    			<i class="fa-solid fa-trash-can"></i>
+		                    		</a>
+		                   		</td>
+		                    </tr>                
+		                </tbody>
+		            </table>
+		        </div>
+    		</div>
+		</div>
+	</section>    
+</body>
+</html>

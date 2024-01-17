@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Contact Us</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/style1.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/contactUs.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main-banner.css">
+    <link rel="stylesheet" href="css/featured-books.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/featured-books.css">
+    <link rel="stylesheet" href="css/additional-info.css">
+    <link rel="stylesheet" href="css/community.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <script src="js/main-banner.js"></script>
+    <script src="js/nav-cart.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/alert.js"></script>
+<script src="https://kit.fontawesome.com/8755f6524d.js"
+	crossorigin="anonymous"></script>
+<style>
+header{
+	position: relative;
+}
+	
+</style>
+</head>
+<body>
+	<div th:replace="@{/fragments/header}::header"></div>
+    
+    <div th:replace="@{/fragments/nav-cart}::nav-cart"></div>
+    <div th:replace="@{/fragments/nav-user}::nav-user"></div>
+    
+	<div th:if="${param.success}" id="alertMessage">
+		<div class="alert alert-success">
+			<i class="fa-regular fa-circle-check"></i> &emsp;Message Sent Successfully
+		</div>
+	</div>
+	<div th:if="${param.error}" id="alertMessage">
+		<div class="alert alert-error">
+			<i class="fa-solid fa-triangle-exclamation"></i> &emsp;Failed to sent Message
+		</div>
+	</div>
+		<form th:action="@{/contact}" th:object="${contact}" th:method="post"
+			style="width:550px; margin: 100px auto;">
+			<label for="personName">Name:</label> 
+			<input class="in" type="text"
+				th:field="*{personName}" id="name" name="personName" required>
+
+			<label for="personEmail">Email:</label> <input class="in" type="email"
+				th:field="*{personEmail}" id="email" name="personEmail" required>
+
+			<label for="personMsg">Message:</label>
+			<textarea class="in" id="message" th:field="*{personMsg}"
+				name="personMsg" rows="4" required></textarea>
+
+			<button class="btn" type="submit">Submit</button>
+		</form>
+</body>
+</html>

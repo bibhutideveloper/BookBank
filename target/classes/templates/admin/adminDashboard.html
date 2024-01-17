@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-sidebar.css}">
+	<link rel="stylesheet" th:href="@{/css/dashboard-tabs.css}">
+	
+	<script th:src="@{/js/alert.js}"></script>
+	
+	<title>Dashboard</title>
+</head>
+<body>
+	<header th:replace="admin/fragments/header::header"></header>
+	
+	<section id="admin-dashboard">
+		<div th:replace="admin/fragments/sidebar::sidebar"></div>
+		<div class="dashboard-tabs">			
+			<div class="dashboard-tabs-data" >
+	        	<div class="heading-mini">
+			    	<h2>Data Counts</h2>
+			            <div class="dividerFull"></div>
+			    </div>
+			    <div class="dashboard-inner">
+		            <!-- <div th:replace="admin/fragments/data_counts::dataCounts"></div> -->
+					<div class="data-counts" th:fragment="dataCounts">
+						<div class="data-items">
+							<div>
+								 <span><i class="fa-solid fa-book"></i></span>
+								 <span>
+									 <p>21</p>
+									 <p>books</p>
+								 </span>
+							</div>
+							
+							<div>
+								 <span><i class="fa-solid fa-list-ol"></i></span>
+								 <span>
+									 <p>3</p>
+									 <p>genre</p>
+								 </span>
+							</div>
+							
+							<div>
+								 <span><i class="fa-solid fa-users"></i></span>
+								 <span>
+									 <p>1</p>
+									 <p>users</p>
+								 </span>
+							</div>
+					
+							<div>
+								<span><i class="fa-solid fa-truck"></i></span>
+								<span>
+									<p>21</p>
+									<p>orders</p>
+								</span>
+						   </div>
+						</div>
+					</div>
+			     </div>
+	    	</div>
+		</div>
+	</section>
+    
+</body>
+</html>

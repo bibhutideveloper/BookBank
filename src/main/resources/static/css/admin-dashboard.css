@@ -1,0 +1,82 @@
+/* header admin */
+.admin-header{
+    height: 80px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    width: calc(100% - 80px);
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.admin-header .logo{
+    display: flex;
+}
+.admin-log{
+    height: 40px;
+}
+.admin-log img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+/* rest */
+#admin-dashboard{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: end;
+}
+.dashboard-tabs{
+    width: 70%;
+    padding: 100px 45px 100px 30px;
+    min-height: 100%;
+    /* background-color: rgb(247, 247, 247); */
+}
+
+
+/* data counts */
+.data-items{
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+.data-items>div{
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+    padding: 10px 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgb(154 160 185 / 50%), 
+                0 15px 40px rgb(166 173 201 / 50%);
+}
+.data-items i{
+    font-size: 43px;
+    color: var(--txt-light-color);
+}
+.data-items p:nth-child(1){
+    font-size: 33px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+.data-items p:nth-child(2){
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--txt-medium-color);
+    text-transform: uppercase;
+}
+
+/* admin all form */
+.form-div .form-inputs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}

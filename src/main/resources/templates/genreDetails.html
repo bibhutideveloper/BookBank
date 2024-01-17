@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/featured-books.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/shop.css}">
+
+    <script th:src="@{/js/main-banner.js}"></script>
+    <script th:src="@{/js/nav-cart.js}"></script>
+    <script th:src="@{/js/login.js}"></script> 
+    <title>BookBank | Genre Details</title>
+</head>
+<body>
+    <div th:replace="@{/fragments/header}::header"></div>
+<div th:replace="@{/fragments/shop-filter}::shop-filter"></div>
+    <section id="genre-details">
+        <div class="genre-details">
+            <!-- Display genre details here (if needed) -->
+
+            <!-- Display books for the selected genre -->
+            <div class="book-grid">
+                <th:block th:each="book : ${listBooks}">
+                    <div class="card">
+                        <div class="book-img">
+                            <img th:src="@{${'/images/books/' + book.image}}" alt="">
+                            <div class="buttons-shop">
+                                <!-- Add your buttons or actions for books -->
+                                <span><i class="fa-regular fa-heart"></i></span>
+                                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                                <span><i class="fa-regular fa-hourglass-half"></i></span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title" th:text="${book.title}"></h3>
+                            <span class="book-rating">
+                                <!-- Display book rating -->
+                                <!-- ... -->
+                            </span>
+                            <h5 class="book-author" th:text="${book.author}"></h5>
+                            <h4 class="book-price"><i class="fa-solid fa-indian-rupee-sign"></i> <span th:text="${book.price}"></span></h4>
+                        </div>
+                        <div class="book-btns-container">
+                            <!-- Add your buttons or actions for books -->
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="@{/fragments/nav-user}::nav-user"></div>
+    <div th:replace="@{/fragments/nav-cart}::nav-cart"></div>
+</body>
+</html>

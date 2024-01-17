@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8755f6524d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/featured-books.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/shop.css}">
+
+    <script th:src="@{/js/main-banner.js}"></script>
+    <script th:src="@{/js/nav-cart.js}"></script>
+    <script th:src="@{/js/login.js}"></script> 
+
+    <title>BookBank | Shop</title>
+</head>
+<body>
+<div th:replace="@{/fragments/header}::header"></div>
+
+<section id="shop">
+    <div class="shop">
+    	<div th:replace="@{/fragments/shop-filter}::shop-filter"></div>
+    	<div class="book-grid">
+    		<a href="#" th:each="book : ${listBook}">
+                <div class="card">
+                    <div class="book-img">
+                        <img th:src="@{/images/books/6.jpg}" alt="">
+                       	<div class="buttons-shop">
+                       		<form th:action="@{/addToAction/{bookId}(bookId=${book.bookId})}" th:object="${book}" method="POST">
+	                			<input type="hidden" name="bookId" th:value="${book.bookId}" />
+	                			<button type="submit" class="shop-me" name="ownType" value="wishlist"><i class="fa-regular fa-heart"></i></button>
+	                			<button type="submit" class="shop-me" name="ownType" value="purchase"><i class="fa-solid fa-cart-shopping"></i></button>
+	                			<button type="submit" class="shop-me" name="ownType" value="rent"><i class="fa-regular fa-hourglass-half"></i></button>
+	                		</form>
+	                	</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title" th:text="${book.bookName}"></h3>
+                        <span class="book-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </span>
+                        <h5 class="book-author" th:text="${book.bookAuthor}"></h5>
+                        <h4 class="book-price">
+                        	<i class="fa-solid fa-indian-rupee-sign"></i>
+                        	<span th:text="${book.bookPrice}"></span>
+                        </h4>
+                    </div>
+                    <div class="book-btns-container">
+						
+                    </div>
+                </div>
+            </a>
+    	</div>
+    </div>
+</section>
+<div th:replace="@{/fragments/nav-user}::nav-user"></div>
+<div th:replace="@{/fragments/nav-cart}::nav-cart"></div>
+
+</body>
+</html>
+
+
+
