@@ -28,7 +28,7 @@
     		<a href="#" th:each="book : ${listBook}">
                 <div class="card">
                     <div class="book-img">
-                        <img th:src="@{/images/books/6.jpg}" alt="">
+                        <img th:src="${book.bookImage}" alt="">
                        	<div class="buttons-shop">
                        		<form th:action="@{/addToAction/{bookId}(bookId=${book.bookId})}" th:object="${book}" method="POST">
 	                			<input type="hidden" name="bookId" th:value="${book.bookId}" />

@@ -32,6 +32,17 @@ public class Books {
 	@Column(name="book_ctg")
 	private String bookCategory;
 	
+	@Column(name="book_image")
+	private String bookImage;
+	
+	public String getBookImage() {
+		return bookImage;
+	}
+
+	public void setBookImage(String bookImage) {
+		this.bookImage = bookImage;
+	}
+
 	@ManyToOne
     @JoinColumn(name="genre_id")
     private Genres genre;

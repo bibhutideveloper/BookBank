@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.project.bookbank.model.Cart;
 import com.project.bookbank.service.CartService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class CartController {
 	
@@ -19,11 +21,13 @@ public class CartController {
 	private CartService cartService;
 	
 	@GetMapping("/cart")
-	public String viewCartPage(Model model) {
+	public String viewCartPage(Model model,HttpSession session) {
 		try {
-			List<Cart> listCart = cartService.findCartByUserId(userId);
+			Integer userId = (Integer) session.getAttribute("loggedInUser");
+			List<Cart> listCart = cartService.findAll();
 			Double grandTotal = calculateGrandTotal(listCart);
 
+            model.addAttribute("userId", userId);
             model.addAttribute("listCart", listCart);
             model.addAttribute("grandTotal", grandTotal);
 
@@ -71,31 +75,47 @@ public class CartController {
     }
 	
 	// Add to cart, rent, wishlist
-	@PostMapping("/addToAction")
-	public String addToCart(@RequestParam("ownType") String ownType, @RequestParam("bookId") Integer bookId, @RequestParam("userId") Integer userId) {
-		try {
-			
-			cartService.addToCart(ownType, bookId, userId);
-			return "shop";
-		}catch(Exception e) {
-			return "shop";
-		}
-	}
+//	@PostMapping("/addToAction")
+//	public String addToCart(@RequestParam("ownType") String ownType, @RequestParam("bookId") Integer bookId, @RequestParam("userId") Integer userId) {
+//		try {
+//			
+//			cartService.addToCart(ownType, bookId, userId);
+//			return "shop";
+//		}catch(Exception e) {
+//			return "shop";
+//		}
+//	}
 	
 	// checkout
-//	@GetMapping("/checkout")
-//    public String checkoutPage(Model model) {
-//		try {
-//			List<Cart> listCart = cartService.getAllCart();
-//			Double grandTotal = calculateGrandTotal(listCart);
-//
-//            model.addAttribute("listCart", listCart);
-//            model.addAttribute("grandTotal", grandTotal);
-//
-//			return "checkout";
-//		}catch(Exception e) {
-//			return "redirect:/";
-//		}
-//    }
+	@GetMapping("/checkout")
+    public String checkoutPage(Model model) {
+		try {
+			List<Cart> listCart = cartService.findAll();
+			Double grandTotal = calculateGrandTotal(listCart);
+
+            model.addAttribute("listCart", listCart);
+            model.addAttribute("grandTotal", grandTotal);
+
+			return "checkout";
+		}catch(Exception e) {
+			return "redirect:/";
+		}
+    }
+	
+	// bill
+		@GetMapping("/bill")
+	    public String billPage(Model model) {
+			try {
+				List<Cart> listCart = cartService.findAll();
+				Double grandTotal = calculateGrandTotal(listCart);
+
+	            model.addAttribute("listCart", listCart);
+	            model.addAttribute("grandTotal", grandTotal);
+
+				return "bill";
+			}catch(Exception e) {
+				return "redirect:/checkout";
+			}
+	    }
 
 }
